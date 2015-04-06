@@ -1,0 +1,403 @@
+// /**
+//  * Reset some basic elements
+//  */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+//"HelveticaNeue-Light", "Helvetica Neue Light",
+/**
+ * Variables
+ */
+$content-font-family: Baskerville, TimesNewRoman, 'Times New Roman', Times,Georgia, serif;
+$header-font-family: 'Roboto Condensed', "Arial Black",Arial, Helvetica, sans-serif;
+$text-color: #222;
+$dark-red-color: #b0010e;
+
+$facebook-color: rgb(59, 89, 151);
+$twitter-color: rgb(64, 153, 255);
+$youtube-color: rgb(117, 117, 117);
+$reddit-color: rgb(31, 89, 111);
+$header-aera-color: #536A80;
+$link-color: #3BA0FF;
+$orientation-color: rgb(76, 43, 98);
+
+$tablet-min-width: 768px;
+$small-desktop-min-width: 992px;
+$large-desktop-min-width: 1200px;
+
+@mixin phone {
+  @media (max-width: #{$tablet-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-min-width}) and (max-width: #{$small-desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: #{$small-desktop-min-width}) and (max-width: #{$large-desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$large-desktop-min-width}) {
+    @content;
+  }
+}
+// *font-family: 'PT Sans Narrow', sans-serif;
+//  * Basic styling
+body {
+  height: 100%;
+}
+// .wrap {
+//   min-height: 100%;
+//   height: auto !important;
+//   height: 100%;
+//   /* Negative indent footer by it's height */
+//   margin: 0 auto -60px;
+// }
+footer {
+  height: 60px;
+}
+h1 {
+  font-family:$header-font-family;
+  font-weight: 700;
+}
+h2, h5, h6{
+  font-family: $header-font-family;
+  font-weight: 700;
+}
+h3, h4 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+  font-size: 20px;
+  margin-top: 0;
+  padding-top:0;
+  font-style: italic;
+}
+
+.btn-font{
+  font-family: Arial, Helvetica, sans-serif;
+}
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  font-family: $content-font-family;
+  font-size: 17px;
+  line-height: 140%;
+  color: $text-color;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+// h2 p{
+//     margin-top: 15px;
+//   }
+// }
+h1, h2, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl {
+  margin-top: 18px;
+}
+h2{
+  margin-bottom: 4px;
+}
+h3{
+  margin-top: 2px;
+  line-height: 160%
+}
+.reduced1{
+  margin-top: 7px;
+  @include small-desktop{
+    margin-top: 31px; //8
+  }
+  @include tablet{
+    margin-top: 18px;
+  }
+  @include phone{
+    margin-top: 18px;
+  }
+}
+.reduced2{
+  margin-top: 20px;
+  @include small-desktop{
+    margin-top: 22px; //6px;
+  }
+  @include tablet{
+    margin-top: 18px;
+  }
+  @include phone{
+    margin-top: 18px;
+  }
+}
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/**
+ * Links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:visited {
+    color: darken($brand-color, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+      margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: scroll;
+
+  > code {
+      border: 0;
+      padding-right: 0;
+      padding-left: 0;
+  }
+}
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+/**
+ * Icons
+ */
+.icon {
+
+  > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+
+    path {
+        fill: $grey-color;
+    }
+  }
+}
+/**
+ * responsive margins
+ */
+.container {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+  // margin-bottom: 80px;
+  @include phone {
+    padding-right: 15px;
+    padding-left: 15px;
+
+  }
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.no-gutter-phone  > [class*='col-'] {
+  @include phone {
+    padding-right:0;
+    padding-left:0;
+  }
+}
+/**
+ * Wide Button Mixin
+ * @param {Color} $bg-color
+ */
+@mixin wide-button($bg-color) {
+  color: #fff;
+  background-color: $bg-color;
+  border: 1px solid $bg-color;
+  font-weight: 300;
+  line-height: normal;
+  padding: 12px 16px;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    background-color: lighten( $bg-color, 5% );
+    border-color: darken( $bg-color, 2% );
+  }
+  &:visited{
+    color: #fff;
+  }
+}
+
+
+ /**
+ * Wide Button Mixin
+ * @param {Color} $dark-red-color
+ */
+
+
+@mixin simple-button{
+  margin:0;
+  font-weight:300;
+  letter-spacing: 1px;
+}
+
+.btn-headline, a.btn-headline:link {
+  @include wide-button(#D93F36);
+  @include simple-button;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.btn-aera, a.btn-aera:link {
+  @include wide-button(#536A80);
+  @include simple-button;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.btn-nav, a.btn-nav:link {
+  @include wide-button(#536A80);// 93A5BA
+  @include simple-button;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.btn-headline, a.btn-headline:link, .btn-aera, a.btn-aera:link, .btn-nav, a.btn-nav:link {
+  -webkit-transition: all 80ms cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+   -moz-transition: all 80ms cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+     -o-transition: all 80ms cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+        transition: all 80ms cubic-bezier(0.685, 0.060, 0.355, 0.960); /* custom */
+
+  -webkit-transition-timing-function: cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+     -moz-transition-timing-function: cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+       -o-transition-timing-function: cubic-bezier(0.685, 0.060, 0.355, 0.960); 
+          transition-timing-function: cubic-bezier(0.685, 0.060, 0.355, 0.960); /* custom */
+}
+.btn-space{
+  padding-top: 18px;
+  padding-bottom: 45px;
+}
+
+ /**
+ * special titles
+ * 
+ */
+.logo-box{
+  margin: 8px 0;
+}
+.aera-brand-title{
+  float: left;
+  color: #fff;
+  font-size: 36px;
+  margin-top: 1px;
+  margin-left: 10px;
+}
+
+.logo{
+  float: left;
+  height: 35px;
+  margin-top: 2px;
+  width: auto;
+
+}
